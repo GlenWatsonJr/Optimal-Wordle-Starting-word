@@ -1,0 +1,9 @@
+Wordle Optimal Starting Word:
+
+The letters that show up the most in puzzles are: 'e' 'a' 'r' 'o' 'l'
+
+The most optimal word is: learn
+
+The most optimal word with 3 vowels is: alone
+
+The top optimal words are:  1. learn  2. alert  3. alone  4. alter  5. later  6. clear  7. irate  8. adore  9. alien  10. atone  11. crane  12. liner
