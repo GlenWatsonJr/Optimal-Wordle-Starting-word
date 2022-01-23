@@ -1,3 +1,7 @@
+***If you reading this, there is a flaw that makes this not optimal.  I was counting each letter in word, including duplicates
+in order to get the optimal solution I need to count each letter in a word once.  Once I fix it, the optimal solution should
+be "arise" but I will do that at a later date.***
+
 Wordle Optimal Starting Word:
 
 The letters that show up the most in puzzles are: 'e' 'a' 'r' 'o' 't'
