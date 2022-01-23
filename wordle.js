@@ -9,31 +9,7 @@ const fs = require('fs')
     let normData = data.toString();
     let answerArr = normData.split(`\n`)
 
-    //The optimal word has 5 different letters, removing words with duplicate letters.
-
-    let needsRemoval = [];
-    for(let i = 0; i < answerArr.length; i++){
-        if(answerArr[i].slice(1,5).includes(answerArr[i][0])){
-            needsRemoval.push(answerArr[i]);
-        }
-        if((answerArr[i].slice(2,5).includes(answerArr[i][1])) || (answerArr[i][0] === answerArr[i][1])){
-            needsRemoval.push(answerArr[i]);
-        }
-        if((answerArr[i].slice(0,2).includes(answerArr[i][2]))||(answerArr[i].slice(3,5).includes(answerArr[i][2]))){
-            needsRemoval.push(answerArr[i]);
-        }
-        if((answerArr[i].slice(0,3).includes(answerArr[i][3])) || (answerArr[i][3] === answerArr[i][4])){
-            needsRemoval.push(answerArr[i]);
-        }
-        if(answerArr[i].slice(0,4).includes(answerArr[i][5])){
-            needsRemoval.push(answerArr[i]);
-        }
-        
-    }
-    //removing the duplicate words.
-    for (let i = 0; i < needsRemoval.length; i++){
-        answerArr.splice(answerArr.indexOf(needsRemoval[i]),1);
-    }
+ 
    
     //creating an object that contain letter and how many times they appear in all the answers
     let letterVals = {
@@ -118,6 +94,37 @@ const fs = require('fs')
     for (let i = 0; i < letterScore.length; i++){
         letterScore[i][1] = i;
     }
+
+   //The optimal word has 5 different letters, removing words with duplicate letters.
+
+   let needsRemoval = [];
+   for(let i = 0; i < answerArr.length; i++){
+       if(answerArr[i].slice(1,5).includes(answerArr[i][0])){
+           needsRemoval.push(answerArr[i]);
+       }
+       if((answerArr[i].slice(2,5).includes(answerArr[i][1])) || (answerArr[i][0] === answerArr[i][1])){
+           needsRemoval.push(answerArr[i]);
+       }
+       if((answerArr[i].slice(0,2).includes(answerArr[i][2]))||(answerArr[i].slice(3,5).includes(answerArr[i][2]))){
+           needsRemoval.push(answerArr[i]);
+       }
+       if((answerArr[i].slice(0,3).includes(answerArr[i][3])) || (answerArr[i][3] === answerArr[i][4])){
+           needsRemoval.push(answerArr[i]);
+       }
+       if(answerArr[i].slice(0,4).includes(answerArr[i][5])){
+           needsRemoval.push(answerArr[i]);
+       }
+
+   }
+
+
+   //removing the duplicate words.
+   for (let i = 0; i < needsRemoval.length; i++){
+       if (answerArr.includes(needsRemoval[i])){
+       answerArr.splice(answerArr.indexOf(needsRemoval[i]),1);
+       }
+   }
+
     //creating a word score array to find the optimal words
     let wordScore = [];
     let points = 0;
@@ -178,7 +185,7 @@ const fs = require('fs')
    console.log(`Wordle Optimal Starting Word: \n
 The letters that show up the most in puzzles are: ${output2} \n
 The most optimal word is: ${wordScore[0][0]} \n
-The most optimal word with 3 vowels is: ${wordScore[2][0]} \n
+The most optimal word with 3 vowels is: ${wordScore[3][0]} \n
 The top optimal words are: ${output1}
                 `);
 })
