@@ -1,6 +1,6 @@
 ***If you reading this, there is a flaw that makes this not optimal.  I was counting each letter in word, including duplicates
-in order to get the optimal solution I need to count each letter in a word once.  Once I fix it, the optimal solution should
-be "arise" but I will do that at a later date.***
+in order to get the optimal solution I need to count each letter in a word once.  **2nd update, Also the optimal word should have the 
+most correct positioned letter(green squares) in all the answers also. Technically "raise" would be the optimal starting word with 3 vowels.***
 
 Wordle Optimal Starting Word:
 
